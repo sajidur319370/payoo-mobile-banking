@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payoo | Login</title>
+    <link rel="icon" type="image/png" href="./payoo.png" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body class="bg-[#F4F5F7]">
+    <main
+      class="flex justify-center items-center flex-col w-full max-w-[400px] mx-auto min-h-screen px-4"
+    >
+      <div
+        class="flex justify-center items-center bg-[url('./assets/bg.png')] bg-no-repeat bg-cover w-full h-[150px]"
+      >
+        <img src="./assets/Group.png" alt="Payoo logo" />
+      </div>
+
+      <form
+        id="login_form"
+        class="bg-white p-6 rounded-lg shadow-md w-full flex flex-col gap-4"
+      >
+        <fieldset class="flex flex-col gap-2 border-none p-0 m-0">
+          <label class="font-bold text-base" for="mobile_number"
+            >Mobile Number</label
+          >
+          <input
+            type="tel"
+            id="mobile_number"
+            name="mobile_number"
+            inputmode="numeric"
+            autocomplete="tel"
+            maxlength="11"
+            pattern="01[3-9]\d{8}"
+            title="Enter an 11-digit mobile number (e.g. 01712345678)"
+            required
+            placeholder="Mobile Number"
+            class="input placeholder-black/50 border-none bg-[#F4F5F7] p-4 rounded-full w-full text-sm focus:outline-none"
+          />
+        </fieldset>
+
+        <fieldset class="flex flex-col gap-2 border-none p-0 m-0">
+          <label class="font-bold text-base" for="login_pin">Pin Number</label>
+          <input
+            type="password"
+            id="login_pin"
+            name="login_pin"
+            inputmode="numeric"
+            autocomplete="current-password"
+            maxlength="4"
+            pattern="\d{4}"
+            title="Enter a 4-digit PIN"
+            required
+            placeholder="Enter 4 digit pin number"
+            class="input placeholder-black/50 border-none bg-[#F4F5F7] p-4 rounded-full w-full text-sm focus:outline-none"
+          />
+        </fieldset>
+
+        <button
+          type="submit"
+          class="btn mt-3 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 border-none rounded-full w-full"
+        >
+          Login
+        </button>
+      </form>
+    </main>
+
+    <div id="toast_container" class="toast toast-top toast-center z-50"></div>
+    <script type="module" src="./js/login.js"></script>
+  </body>
+</html>
