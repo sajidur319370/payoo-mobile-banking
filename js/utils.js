@@ -1,6 +1,24 @@
 /** Short wrapper for document.querySelector. */
 export const $ = (selector, scope = document) => scope.querySelector(selector);
+export const $$ = (selector, scope = document) => [
+  ...scope.querySelectorAll(selector),
+];
+/** 4500 -> "4,500.00" */
+export const formatAmount = (value) =>
+  value.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 
+/** 4500 -> "$ 4,500.00" */
+export const formatMoney = (value) => `$ ${formatAmount(value)}`;
+
+/** Date -> "5 Oct 2026, 08:15 pm" */
+export const formatDate = (date) =>
+  new Intl.DateTimeFormat("en-GB", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(date);
 /**
  * Shows a temporary DaisyUI alert at the top of the screen.
  * @param {string} message
